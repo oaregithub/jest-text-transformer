@@ -30,8 +30,10 @@ module.exports = {
     return cached.hash
   },
 
-  process (src, filename) {
+  process (src) {
     const escapedSrc = src.replace(/`/g, '\\`')
+      .replace(/\$/g, '\\$')
+
     return `module.exports = \`${escapedSrc}\``
   }
 }
